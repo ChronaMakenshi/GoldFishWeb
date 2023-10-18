@@ -8,6 +8,8 @@ export default defineConfig({
             '/votre-route-api': 'http://localhost:3000',
         },
     },
-    plugins: [Vue()],
+    plugins: [
+        Vue(),
+    ],
 });
 

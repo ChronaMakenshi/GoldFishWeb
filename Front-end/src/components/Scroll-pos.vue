@@ -6,19 +6,21 @@ export default {
     };
   },
   mounted() {
-    window.addEventListener("scroll", () => {
+    // Écouteur d'événement pour "scroll" avec passive: true
+    window.addEventListener("scroll", this.handleScroll, { passive: true });
+
+    const interval = setInterval(() => {
+      this.showPos = "-100px";
+    }, 5000);
+  },
+  methods: {
+    handleScroll() {
       if (window.pageYOffset && window.scrollY) {
         this.showPos = "10px";
       } else {
         this.showPos = "-100px";
       }
-    });
-
-    const interval = setInterval(() => {
-      this.showPos = "-100px";
-    }, 10000);
-  },
-  methods: {
+    },
     scrollToTop() {
       window.scrollTo({
         top: 0,
@@ -26,7 +28,6 @@ export default {
       });
     },
   },
-
 };
 </script>
 
@@ -35,7 +36,7 @@ export default {
     <div
         id="returnToHeader"
         class="fixed z-20 max-lg:hidden"
-        @click="scrollToTop"
+        @click.passive="scrollToTop"
         :style="{ right: showPos }"
     >
       <img alt="start" src="src/assets/Neuneufleche.png" />

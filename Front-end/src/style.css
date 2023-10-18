@@ -570,3 +570,8 @@ body {
 #returnToNav {
     transition: .3s;
 }
+
+.hidden {
+    display: none;
+}
+

@@ -1,3 +1,7 @@
+<script setup>
+import Modal from '/src/components/Modal.vue'
+</script>
+
 <template>
   <article class="my-10">
     <div class="text-center m-5 text-3xl max-md:text-xl text-white">
@@ -30,9 +34,7 @@
             <li> Statistiques de visite</li>
             <li>Mise en ligne du site</li>
           </ul>
-          <div class="text-center">
-            <button class="bg-red-600 p-2 rounded-2xl text-white">Demander un Devis</button>
-          </div>
+          <Modal></Modal>
         </div>
         <div class="bg-blue-400 p-5 text-white dark:bg-zinc-800 dark:text-white">
           <h3 class="text-center underline underline-offset-2 decoration-double text-xl font-semibold uppercase">Site
@@ -53,9 +55,7 @@
             <li> Statistiques de visite</li>
             <li>Mise en ligne du site</li>
           </ul>
-          <div class="text-center">
-            <button class="bg-red-600 p-2 rounded-2xl text-white">Demander un Devis</button>
-          </div>
+          <Modal></Modal>
         </div>
         <div class="bg-blue-700 p-5 text-white dark:bg-zinc-100 dark:text-black">
           <h3
@@ -68,7 +68,7 @@
             <li>Restauration en cas de piratage</li>
           </ul>
           <div class="text-center">
-            <button class="bg-red-600 p-2 rounded-2xl text-white">Me Contacter</button>
+            <a href="#Contact" class="bg-red-600 p-2 rounded-2xl text-white">Me Contacter</a>
           </div>
         </div>
         <div class="bg-blue-400  text-white p-5 rounded-br-lg dark:bg-zinc-800 dark:text-white">
@@ -76,9 +76,9 @@
               class="text-center underline underline-offset-2 decoration-double text-xl font-semibold uppercase">Développements
             spécifiquese</h3>
           <p class="text-center my-3 text-lg">Taux journalier moyen</p>
-          <p class="text-center text-lg">350 € / jour</p>
+          <p class="text-center text-lg p-6">350 € / jour</p>
           <div class="text-center">
-            <button class="bg-red-600 p-2 mt-3 rounded-2xl text-white">Me Contacter</button>
+            <a href="#Contact" class="bg-red-600 p-2 mt-3 rounded-2xl text-white">Me Contacter</a>
           </div>
         </div>
       </div>

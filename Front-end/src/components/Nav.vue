@@ -2,6 +2,7 @@
  import ModeDark from "./ModeDark.vue";
  import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/vue'
  import { Bars3Icon, XMarkIcon } from '@heroicons/vue/24/outline'
+ import { ref, onMounted } from 'vue';
 
  const navigation = [
    { name: '🦈', href: '#Home', current: true },
@@ -11,37 +12,29 @@
    { name: 'À PROPOS', href: '#Apropos', current: false },
    { name: 'CONTACT', href: '#Contact', current: false },
  ]
-</script>
 
-<script>
-export default {
-  data() {
-    return {
-      showPos: "0", // Initialisation avec une valeur CSS valide
-    };
-  },
-  mounted() {
-    window.addEventListener("scroll", () => {
-        this.showPos = "0";
-    });
+ const showPos = ref("0");
 
-    const interval = setInterval(() => {
-      if (window.scrollY) {
-        this.showPos = "-80px";
-      }else {
-        this.showPos = "0";
-      }
-    }, 2000);
-  },
-  methods: {
-    scrollToTop() {
-      window.scrollTo({
-        top: 0,
-        behavior: "auto",
-      });
-    },
-  },
-};
+ const scrollToTop = () => {
+   window.scrollTo({
+     top: 0,
+     behavior: "auto",
+   });
+ };
+
+ onMounted(async () => {
+   window.addEventListener("scroll", () => {
+     showPos.value = "0";
+   }, { passive: true }); // Ajoutez { passive: true } ici pour optimiser la performance.
+
+   const interval = setInterval(async () => {
+     if (window.scrollY) {
+       showPos.value = "-80px";
+     } else {
+       showPos.value = "0";
+     }
+   }, 2000);
+ });
 </script>
 
 <template>
