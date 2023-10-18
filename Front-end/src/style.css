@@ -16,344 +16,213 @@ body {
     height: auto;
     margin: 40px auto;
     padding: 10px;
-    border-radius:10px;
-}.SkillBar {
+    border-radius: 10px;
+}
+
+.SkillBar {
     width: 95%;
     height: 50px;
     position: relative;
     background: rgba(17, 17, 17, .3);
     margin: 20px auto;
+    animation: AnimateSkill 2s forwards;
 }
-#Skill-HTML {
-    width: 100%;
-    animation: Animate-HTML 4s;
-    height: 50px;
-    position: absolute;
+
+
+.Skill-HTML {
     background-color: #E44D26;
+    width: 100%;
+    height: 50px;
+    animation: Animate-HTML 4s forwards;
 }
+
 @keyframes Animate-HTML {
     from {
-        width: 10px;
+        width: 0;
     }
     to {
-        width: 100%}
-}@-webkit-keyframes Animate-HTML {
-     from {
-         width: 10px;
-     }
-     to {
-         width: 100%}
- }@-moz-keyframes Animate-HTML {
-      from {
-          width: 10px;
-      }
-      to {
-          width: 100%}
-  }@-o-keyframes Animate-HTML {
-       from {
-           width: 10px;
-       }
-       to {
-           width: 100%}
-   }#Skill-CSS {
-        animation: Animate-CSS 5s;
-        width: 95%;
-        height: 50px;
-        position: absolute;
-        background-color: #214CE5;
+        width: 100%;
     }
-@keyframes Animate-CSS {
+}
+
+.Skill-CSS-SCSS {
+    background-color: #214CE5;
+    width: 95%;
+    height: 50px;
+    animation: Animate-CSS-SCSS 5s forwards;
+}
+
+@keyframes Animate-CSS-SCSS {
     from {
-        width: 10px;
+        width: 0;
     }
     to {
-        width: 95%}
-}@-webkit-keyframes Animate-CSS {
-     from {
-         width: 10px;
-     }
-     to {
-         width: 95%}
- }@-moz-keyframes Animate-CSS {
-      from {
-          width: 10px;
-      }
-      to {
-          width: 95%}
-  }@-o-keyframes Animate-CSS {
-       from {
-           width: 10px;
-       }
-       to {
-           width: 95%}
-   }#Skill-Wordpress {
-        animation: Animate-Wordpress 5s;
-        width: 85%;
-        height: 50px;
-        position: absolute;
-        background-color: #21759B;
+        width: 95%;
     }
+}
+
+.Skill-Bootstrap-Tailwind {
+    background-color: #214CE5;
+    width: 95%;
+    height: 50px;
+    animation: Animate-Bootstrap-Tailwind 5s forwards;
+}
+
+@keyframes Animate-Bootstrap-Tailwind {
+    from {
+        width: 0;
+    }
+    to {
+        width: 95%;
+    }
+}
+
+.Skill-Wordpress {
+    background-color: #21759B;
+    width: 85%;
+    height: 50px;
+    animation: Animate-Wordpress 5s forwards;
+}
+
 @keyframes Animate-Wordpress {
     from {
-        width: 10px;
+        width: 0;
     }
     to {
-        width: 85%}
-}@-webkit-keyframes Animate-Wordpress {
-     from {
-         width: 10px;
-     }
-     to {
-         width: 85%}
- }@-moz-keyframes Animate-Wordpress{
-      from {
-          width: 10px;
-      }
-      to {
-          width: 85%}
-  }@-o-keyframes Animate-Wordpress {
-       from {
-           width: 10px;
-       }
-       to {
-           width: 85%}
-   }#Skill-JS {
-        animation: Animate-JS 4s;
+        width: 85%;
+    }
+}
+
+.Skill-Javascript {
+    background-color: #F7E018;
+    width: 80%;
+    height: 50px;
+    animation: Animate-Javascript 4s forwards;
+}
+
+@keyframes Animate-Javascript {
+    from {
+        width: 0;
+    }
+    to {
         width: 80%;
-        height: 50px;
-        position: absolute;
-        background: #F7E018;
     }
-@keyframes Animate-JS {
-    from {
-        width: 10px;
-    }
-    to {
-        width: 80%}
-}@-webkit-keyframes Animate-JS {
-     from {
-         width: 10px;
-     }
-     to {
-         width: 80%}
- }@-moz-keyframes Animate-JS {
-      from {
-          width: 10px;
-      }
-      to {
-          width: 80%}
-  }@-o-keyframes Animate-JS {
-       from {
-           width: 10px;
-       }
-       to {
-           width: 80%}
-   }#Skill-React {
-        animation: Animate-React 4s;
-        width: 70%;
-        height: 50px;
-        position: absolute;
-        background: #61DAFB;
-    }
-@keyframes Animate-React {
-    from {
-        width: 10px;
-    }
-    to {
-        width: 70%}
-}@-webkit-keyframes Animate-React {
-     from {
-         width: 10px;
-     }
-     to {
-         width: 70%}
- }@-moz-keyframes Animate-React {
-      from {
-          width: 10px;
-      }
-      to {
-          width: 70%}
-  }@-o-keyframes Animate-React {
-       from {
-           width: 10px;
-       }
-       to {
-           width: 70%}
-   }#Skill-Vuejs {
-        animation: Animate-Vuejs 4s;
-        width: 60%;
-        height: 50px;
-        position: absolute;
-        background: #435466;
-    }
-@keyframes Animate-Vuejs {
-    from {
-        width: 10px;
-    }
-    to {
-        width: 60%}
-}@-webkit-keyframes Animate-Vuejs {
-     from {
-         width: 10px;
-     }
-     to {
-         width: 60%}
- }@-moz-keyframes Animate-Vuejs {
-      from {
-          width: 10px;
-      }
-      to {
-          width: 60%}
-  }@-o-keyframes Animate-Vuejs {
-       from {
-           width: 10px;
-       }
-       to {
-           width: 60%}
-   }#Skill-PHP {
-        animation: Animate-PHP 4s;
-        width: 80%;
-        height: 50px;
-        position: absolute;
-        background-color: #5A69A6;
-    }
+}
+
+/* Ajoutez la classe spécifique pour la couleur du texte */
+.Skill-Javascript .Skill-Area,
+.Skill-Javascript .PercentText {
+    color: black; /* Définissez la couleur du texte en noir */
+}
+
+.Skill-PHP {
+    background-color: #5A69A6;
+    width: 80%;
+    height: 50px;
+    animation: Animate-PHP 4s forwards;
+}
+
 @keyframes Animate-PHP {
     from {
-        width: 10px;
+        width: 0;
     }
     to {
-        width: 80%}
-}@-webkit-keyframes Animate-PHP {
-     from {
-         width: 10px;
-     }
-     to {
-         width: 80%}
- }@-moz-keyframes Animate-PHP {
-      from {
-          width: 10px;
-      }
-      to {
-          width: 80%}
-  }@-o-keyframes Animate-PHP {
-       from {
-           width: 10px;
-       }
-       to {
-           width: 80%}
-   }#Skill-Symfony {
-        animation: Animate-Symfony 4s;
-        width: 75%;
-        height: 50px;
-        position: absolute;
-        background-color: #000000;
+        width: 80%;
     }
+}
+
+.Skill-Symfony {
+    background-color: #000000;
+    width: 75%;
+    height: 50px;
+    animation: Animate-Symfony 4s forwards;
+}
+
 @keyframes Animate-Symfony {
     from {
-        width: 10px;
+        width: 0;
     }
     to {
-        width: 75%}
-}@-webkit-keyframes Animate-Symfony {
-     from {
-         width: 10px;
-     }
-     to {
-         width: 75%}
- }@-moz-keyframes Animate-Symfony {
-      from {
-          width: 10px;
-      }
-      to {
-          width: 75%}
-  }@-o-keyframes Animate-Symfony {
-       from {
-           width: 10px;
-       }
-       to {
-           width: 30%}
-   }#Skill-Laravel {
-        animation: Animate-Laravel 4s;
         width: 75%;
-        height: 50px;
-        position: absolute;
-        background-color: #FF291A;
     }
+}
+
+.Skill-Laravel {
+    background-color: #FF291A;
+    width: 75%;
+    height: 50px;
+    animation: Animate-Laravel 4s forwards;
+}
+
 @keyframes Animate-Laravel {
     from {
-        width: 10px;
+        width: 0;
     }
     to {
-        width: 75%}
-}@-webkit-keyframes Animate-Laravel {
-     from {
-         width: 10px;
-     }
-     to {
-         width: 75%}
- }@-moz-keyframes Animate-Laravel {
-      from {
-          width: 10px;
-      }
-      to {
-          width: 75%}
-  }@-o-keyframes Animate-Laravel {
-       from {
-           width: 10px;
-       }
-       to {
-           width: 75%}
-   }#Skill-SQL {
-        animation: Animate-SQL 4s;
-        width: 65%;
-        height: 50px;
-        position: absolute;
-        background-color: #3008FE;
+        width: 75%;
     }
+}
+
+.Skill-React {
+    background-color: #61DAFB;
+    width: 70%;
+    height: 50px;
+    animation: Animate-React 4s forwards;
+}
+
+@keyframes Animate-React {
+    from {
+        width: 0;
+    }
+    to {
+        width: 70%;
+    }
+}
+
+.Skill-SQL {
+    background-color: #3008FE;
+    width: 65%;
+    height: 50px;
+    animation: Animate-SQL 4s forwards;
+}
+
 @keyframes Animate-SQL {
     from {
-        width: 10px;
+        width: 0;
     }
     to {
-        width: 65%}
-}@-webkit-keyframes Animate-SQL {
-     from {
-         width: 10px;
-     }
-     to {
-         width: 65%}
- }@-moz-keyframes Animate-SQL {
-      from {
-          width: 10px;
-      }
-      to {
-          width: 65%}
-  }@-o-keyframes Animate-SQL {
-       from {
-           width: 10px;
-       }
-       to {
-           width: 65%}
-   }.Skill-Area {
-        z-index: 1;
-        float: left;
-        position: absolute;
-        margin-top: 15px;
-        margin-left: 15px;
-        text-shadow: none;
-        color: #fff;
-        font-size: 18px;
+        width: 65%;
     }
-    .Skill-Area-1 {
-        z-index: 1;
-        float: left;
-        position: absolute;
-        margin-top: 15px;
-        margin-left: 15px;
-        text-shadow: none;
-        color: #000;
-        font-size: 18px;
+}
+
+.Skill-Vue3 {
+    background-color: #435466;
+    width: 60%;
+    height: 50px;
+    animation: Animate-Vue3 4s forwards;
+}
+
+@keyframes Animate-Vue3 {
+    from {
+        width: 0;
     }
+    to {
+        width: 60%;
+    }
+
+}
+
+.Skill-Area {
+    z-index: 1;
+    float: left;
+    position: absolute;
+    margin-top: 15px;
+    margin-left: 15px;
+    text-shadow: none;
+    color: #fff;
+    font-size: 18px;
+}
+
 .PercentText {
     z-index: 3;
     position: relative;
@@ -363,74 +232,17 @@ body {
     text-shadow: none;
     color: #fff;
     font-size: 18px;
-}.PercentText-1 {
-     z-index: 3;
-     position: relative;
-     padding-right: 15px;
-     margin-top: 15px;
-     float: right;
-     text-shadow: none;
-     color: #000000;
-     font-size: 18px;
- }
-
-
-@keyframes animateSprite {
-    0% {
-        background-position: -600px; /* Starting position moving left sprite */
-    }
-    20% {
-        background-position: 0; /* Straight on sprite */
-    }
-    25% {
-        background-position: -200px; /* Moving up sprite */
-    }
-    35% {
-        background-position: -400px; /* Moving right sprite */
-    }
-    40% {
-        background-position: -400px;
-    }
-    50% {
-        background-position: -200px;  /* Moving up sprite */
-    }
-    60% {
-        background-position: -0px; /* Straight on sprite */
-    }
-    67% {
-        background-position: -600px; /* Moving up sprite */
-    }
-    100% {
-        background-position: -600px;
-    }
 }
 
-@keyframes swim {
-    0% {
-        transform: translate(0, 0); /* Starting position */
-    }
-    20% {
-        transform: translate(calc(-50vw - 100px), 0); /* Animate to center of screen */
-    }
-    25% {
-        transform: translate(calc(-50vw - 100px), 0); /* Stay at the center for 1 second */
-    }
-    35% {
-        transform: translate(calc(-50vw - 100px), -20vh); /* Animate up for 2 seconds */
-    }
-    50% {
-        transform: translate(-25vw, 15vh); /* Animate bottom right for 3 seconds */
-    }
-    60% {
-        transform: translate(-25vw, -20vh); /* Animate up at right of the screen */
-    }
-    67% {
-        transform: translate(-25vw, -20vh);
-    }
-
-    100% {
-        transform: translate(calc(-100vw - 300px), 0); /* Animate past left past the screen */
-    }
+.Skill-Details {
+    z-index: 1;
+    float: left;
+    position: absolute;
+    margin-top: 15px;
+    margin-left: 60px;
+    text-shadow: none;
+    color: #fff;
+    font-size: 18px;
 }
 
 

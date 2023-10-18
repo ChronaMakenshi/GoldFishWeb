@@ -41,9 +41,15 @@
                 </svg>
               </button>
             </div>
+            <div class="bg-blue-500 rounded p-2 text-center dark:text-white mb-2">
+              <p>
+                Demande de devis gratuit . Reponse moyenne 48h. Merci de détailler au maximun votre projet pour un
+                reponse présive.
+              </p>
+            </div>
             <form class="space-y-6" @submit.prevent="submitForm">
               <div class="mb-4">
-                <label for="nom" class="block text-gray-800 underline dark:text-white">Nom/Prénom</label>
+                <label for="nom" class="block text-gray-800 underline dark:text-white">Nom/Prénom *</label>
                 <input type="text" id="nom" name="nom" v-model="formData.nom"
                        class="w-full text-gray-800 border-gray-300 rounded-lg shadow-sm">
                 <div  v-if="errors.nom"
@@ -58,7 +64,7 @@
                 </div>
               </div>
               <div class="mb-4">
-                <label class="block text-gray-800 underline dark:text-white">Type d'entité</label>
+                <label class="block text-gray-800 underline dark:text-white">Type d'entité *</label>
                 <input type="radio" id="particulier" name="type_entite" value="particulier" v-model="formData.type_entite">
                 <label for="particulier" class="mr-4 px-1 text-gray-800 dark:text-white">Particulier</label>
                 <input type="radio" id="association" name="type_entite" value="association" v-model="formData.type_entite">
@@ -68,7 +74,7 @@
                 <span class="text-red-500" v-if="errors.type_entite">{{ errors.type_entite }}</span>
               </div>
               <div class="mb-4">
-                <label for="email" class="block text-gray-800 underline dark:text-white">Email</label>
+                <label for="email" class="block text-gray-800 underline dark:text-white">Email *</label>
                 <input type="email" id="email" name="email" v-model="formData.email" class="w-full text-black border-gray-300 rounded-lg shadow-sm">
                 <div  v-if="errors.email"
                       class="flex items-center p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
@@ -82,7 +88,7 @@
                 </div>
               </div>
               <div class="mb-4">
-                <label for="tel" class="block text-gray-800 underline dark:text-white">Téléphone</label>
+                <label for="tel" class="block text-gray-800 underline dark:text-white">Téléphone *</label>
                 <input type="tel" id="tel" name="tel" v-model="formData.tel" class="w-full text-black border-gray-300 rounded-lg shadow-sm">
                 <div  v-if="errors.tel"
                       class="flex items-center p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
@@ -102,7 +108,9 @@
               </div>
               <div class="mb-4">
                 <input type="checkbox" id="accepter" name="accepter" v-model="formData.accepter">
-                <label for="accepter" class="ml-2 text-gray-800 dark:text-white">En soumettant ce formulaire, j'accepte que les informations saisies soient exploitées dans le cadre de la demande de devis et de la relation commerciale qui peut en découler.</label>
+                <label for="accepter" class="ml-2 text-gray-800 dark:text-white">En soumettant ce formulaire,
+                  j'accepte que les informations saisies soient exploitées dans le cadre de la demande de devis et de
+                  la relation commerciale qui peut en découler. *</label>
                 <div  v-if="errors.accepter"
                       class="flex items-center p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
                   <svg class="flex-shrink-0 inline w-4 h-4 mr-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
@@ -115,7 +123,7 @@
                 </div>
               </div>
               <div class="mb-4">
-                <label for="projet" class="block text-gray-800 underline dark:text-white">Message pour votre projet</label>
+                <label for="projet" class="block text-gray-800 underline dark:text-white">Message pour votre projet *</label>
                 <textarea id="projet" name="projet" v-model="formData.projet" rows="4" class="w-full text-black border-gray-300 rounded-lg shadow-sm"></textarea>
                 <div  v-if="errors.projet"
                       class="flex items-center p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
@@ -142,6 +150,9 @@
 <script>
 import axios from "axios";
 import { Modal } from 'flowbite';
+
+const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+const phoneRegex = /^\d{10}$/; // Exemple : 0612345678
 
 export default {
   data() {
@@ -182,20 +193,43 @@ export default {
       this.errors = {};
 
       if (!this.formData.nom) {
-        this.errors.nom = "Le nom est obligatoire.";
+        this.errors.nom = "Le prénom est obligatoire.";
+      } else if (this.formData.nom.length < 5) {
+        this.errors.nom = "La chaîne est trop courte. Veuillez entrer au moins 5 caractères.";
+      } else if (this.formData.nom.length > 20) {
+        this.errors.nom = "La chaîne est trop longue. Limitez-la à 20 caractères maximum.";
       }
+
       if (!this.formData.type_entite) {
         this.errors.type_entite = "Le type d'entité est obligatoire.";
       }
+
       if (!this.formData.email) {
         this.errors.email = "L'e-mail est obligatoire.";
+      } else if (!emailRegex.test(this.formData.email)) {
+        this.errors.email = "Veuillez saisir une adresse e-mail valide.";
+        return; // Empêchez la soumission du formulaire si l'e-mail n'est pas valide.
       }
+
       if (!this.formData.tel) {
         this.errors.tel = "Le téléphone est obligatoire.";
+      } else if (!phoneRegex.test(this.formData.tel)) {
+        this.errors.tel = "Veuillez saisir un numéro de téléphone valide (10 chiffres sans espaces ni caractères spéciaux).";
       }
+
+
       if (!this.formData.projet) {
         this.errors.projet = "Le message est obligatoire.";
       }
+
+      if (!this.formData.projet) {
+        this.errors.projet = "Le prénom est obligatoire.";
+      } else if (this.formData.projet.length < 100) {
+        this.errors.projet = "La chaîne est trop courte. Veuillez entrer au moins 100 caractères.";
+      } else if (this.formData.projet.length > 500) {
+        this.errors.projet = "La chaîne est trop longue. Limitez-la à 500 caractères maximum.";
+      }
+
       if (!this.formData.accepter) {
         this.errors.accepter = "Vous devez accepter les conditions pour soumettre le formulaire.";
       }

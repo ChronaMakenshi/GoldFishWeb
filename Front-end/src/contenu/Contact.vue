@@ -183,6 +183,8 @@
 <script>
 import axios from "axios";
 
+const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
 export default {
   data() {
     return {
@@ -222,15 +224,33 @@ export default {
 
       if (!this.formData.firstname) {
         this.errors.firstname = "Le prénom est obligatoire.";
+      } else if (this.formData.firstname.length < 5) {
+        this.errors.firstname = "La chaîne est trop courte. Veuillez entrer au moins 5 caractères.";
+      } else if (this.formData.firstname.length > 20) {
+        this.errors.firstname = "La chaîne est trop longue. Limitez-la à 20 caractères maximum.";
       }
+
       if (!this.formData.lastname) {
-        this.errors.lastname = "Le nom est obligatoire.";
+        this.errors.lastname = "Le prénom est obligatoire.";
+      } else if (this.formData.lastname.length < 5) {
+        this.errors.lastname = "La chaîne est trop courte. Veuillez entrer au moins 5 caractères.";
+      } else if (this.formData.lastname.length > 20) {
+        this.errors.lastname = "La chaîne est trop longue. Limitez-la à 20 caractères maximum.";
       }
+
       if (!this.formData.email) {
         this.errors.email = "L'e-mail est obligatoire.";
+      } else if (!emailRegex.test(this.formData.email)) {
+        this.errors.email = "Veuillez saisir une adresse e-mail valide.";
+        return; // Empêchez la soumission du formulaire si l'e-mail n'est pas valide.
       }
+
       if (!this.formData.message) {
-        this.errors.message = "Le message est obligatoire.";
+        this.errors.message = "Le prénom est obligatoire.";
+      } else if (this.formData.message.length < 50) {
+        this.errors.message = "La chaîne est trop courte. Veuillez entrer au moins 50 caractères.";
+      } else if (this.formData.message.length > 255) {
+        this.errors.message = "La chaîne est trop longue. Limitez-la à 255 caractères maximum.";
       }
 
       // Vérification de la case à cocher

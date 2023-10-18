@@ -1,89 +1,53 @@
 <template>
-  <article>
+  <article id="Competence">
     <div class="text-center m-5 text-3xl max-md:text-xl text-white">
-      <h2 class="font-bold uppercase underline">Mes Compétence</h2>
+      <h2 class="font-bold uppercase underline">Mes Compétences</h2>
     </div>
     <div>
       <div id="SkillBox" class="bg-blue-400 w-6/12 max-md:w-11/12 dark:bg-zinc-800">
-        <div class="SkillBar">
-          <div id="Skill-HTML">
-            <span class="Skill-Area ">HTML</span>
-            <span class="PercentText ">100%</span>
-          </div>
-        </div>
-
-        <div class="SkillBar">
-          <div id="Skill-CSS">
-            <span class="Skill-Area">CSS/SCSS</span>
-            <span class="PercentText">95%</span>
-          </div>
-        </div>
-
-        <div class="SkillBar">
-          <div id="Skill-CSS">
-            <span class="Skill-Area">Bootstrap/Tailwind</span>
-            <span class="PercentText">95%</span>
-          </div>
-        </div>
-
-        <div class="SkillBar">
-          <div id="Skill-Wordpress">
-            <span class="Skill-Area ">Wordpress</span>
-            <span class="PercentText ">85%</span>
-          </div>
-        </div>
-
-        <div class="SkillBar">
-          <div id="Skill-JS">
-            <span class="Skill-Area-1">Javascript</span>
-            <span class="PercentText-1 ">80%</span>
-          </div>
-        </div>
-
-        <div class="SkillBar">
-          <div id="Skill-PHP">
-            <span class="Skill-Area ">PHP</span>
-            <span class="PercentText ">80%</span>
-          </div>
-        </div>
-
-        <div class="SkillBar">
-          <div id="Skill-Symfony">
-            <span class="Skill-Area ">Symfony</span>
-            <span class="PercentText ">75%</span>
-          </div>
-        </div>
-
-        <div class="SkillBar">
-          <div id="Skill-Laravel">
-            <span class="Skill-Area ">Laravel</span>
-            <span class="PercentText ">75%</span>
-          </div>
-        </div>
-
-        <div class="SkillBar">
-          <div id="Skill-React">
-            <span class="Skill-Area ">React</span>
-            <span class="PercentText ">70%</span>
-          </div>
-        </div>
-
-        <div class="SkillBar">
-          <div id="Skill-SQL">
-            <span class="Skill-Area max-md:hidden">SQL (MySQL, SQLite, PostgreSQL)</span>
-            <span class="Skill-Area">SQL</span>
-            <span class="PercentText ">65%</span>
-          </div>
-        </div>
-
-        <div class="SkillBar">
-          <div id="Skill-Vuejs">
-            <span class="Skill-Area ">Vue.js</span>
-            <span class="PercentText ">60%</span>
+        <div
+            class="SkillBar"
+            v-for="(skill, index) in skills"
+            :key="index"
+        >
+          <div :class="['Skill-' + skill.name]" >
+            <span class="Skill-Area">{{ skill.name }}</span>
+            <span class="PercentText">{{ skill.percent }}%</span>
+            <div class="Skill-Details">
+              {{ skill.details }}
+            </div>
           </div>
         </div>
       </div>
     </div>
   </article>
-
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      skills: [
+        { name: "HTML", percent: 100},
+        { name: "CSS-SCSS", percent: 95 },
+        { name: "Bootstrap-Tailwind", percent: 95 },
+        { name: "Wordpress", percent: 85 },
+        { name: "Javascript", percent: 80},
+        { name: "PHP", percent: 80 },
+        { name: "Symfony", percent: 75},
+        { name: "Laravel", percent: 75},
+        { name: "React", percent: 70 },
+        { name: "SQL", percent: 65, details: "( MySQL, SQLite, PostgreSQL )" },
+        { name: "Vue3", percent: 60},
+      ],
+    };
+  },
+};
+</script>
+
+
+
+
+
+
+
