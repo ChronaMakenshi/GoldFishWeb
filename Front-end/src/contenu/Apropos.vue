@@ -1,6 +1,6 @@
 <template>
   <article>
-    <div class="text-center m-5 text-3xl max-md:text-xl text-white">
+    <div class="text-center m-5 min-[768px]:text-3xl text-white">
       <h2 class="font-bold uppercase underline">À PROPOS</h2>
       <p>Je suis développeur web freelance</p>
     </div>

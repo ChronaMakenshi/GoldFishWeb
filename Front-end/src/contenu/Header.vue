@@ -9,10 +9,12 @@ import Nav from '/src/components/Nav.vue'</script>
     <main>
       <div class="mx-auto flex justify-center items-center">
         <div class="absolute text-white text-center dark:text-black">
-          <h1 class="font-bold max-md:text-2xl text-7xl max-sm:text-md drop-shadow-[2px_2px_5px_rgba(39,108,255,0.7)] ">
+          <h1
+              class="font-bold min-[640px]:text-7xl drop-shadow-[2px_2px_5px_rgba(39,108,255,0.7)] ">
             Création de site web
           </h1>
-          <p class="text-2xl max-sm:text-sm max-md:text-lg drop-shadow-[2px_2px_5px_rgba(39,108,255,0.7)]">Site vitrine,
+          <p
+              class="min-[640px]:text-2xl drop-shadow-[2px_2px_5px_rgba(39,108,255,0.7)]">Site vitrine,
             évènementiel, e-commerce,
             site
             d'entreprise </p>

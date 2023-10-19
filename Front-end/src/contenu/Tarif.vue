@@ -4,7 +4,7 @@ import Modal from '/src/components/Modal.vue'
 
 <template>
   <article class="my-10">
-    <div class="text-center m-5 text-3xl max-md:text-xl text-white">
+    <div class="text-center m-5 min-[768px]:text-3xl text-white">
       <h2 class="font-bold uppercase underline">Mes Tarif</h2>
       <p>Un tarif adapté à un site internet</p>
     </div>

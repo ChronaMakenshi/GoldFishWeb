@@ -1,6 +1,6 @@
 <template>
-  <article class="mt-20">
-    <div class="text-center  text-3xl max-md:text-xl text-white">
+  <article class="mt-20 max-md:mt-10">
+    <div class="text-center min-[768px]:text-3xl text-white">
       <h2 class="font-bold uppercase underline">Mes services</h2>
       <p>Des prestation adaptées à vos besoins</p>
     </div>
