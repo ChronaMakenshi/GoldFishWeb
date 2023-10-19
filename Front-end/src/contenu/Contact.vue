@@ -229,6 +229,7 @@ export default {
         lastname: "",
         email: "",
         message: "",
+        captcha: "",
         checked: false,
       },
       successMessage: "", // Message de succès (initialisé à vide)

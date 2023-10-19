@@ -102,19 +102,54 @@
                 </div>
               </div>
               <div class="mb-4">
-                <label for="adresse_site" class="block underline text-gray-800 dark:text-white">Adresse du site internet</label>
-                <input type="text" id="adresse_site" name="adresse_site" v-model="formData.adresse_site" class="w-full text-black border-gray-300 rounded-lg shadow-sm">
+                <label class="block underline text-gray-800 dark:text-white" for="adresse_site">Adresse du site
+                  internet</label>
+                <input id="adresse_site" v-model="formData.adresse_site" class="w-full text-black border-gray-300 rounded-lg shadow-sm" name="adresse_site"
+                       type="text">
                 <span class="text-red-500" v-if="errors.adresse_site">{{ errors.adresse_site }}</span>
+              </div>
+              <div class="w-full mb-4">
+                <div class="flex flex-col">
+                  <label class="block text-gray-800 underline dark:text-white" for="captcha">Captcha *</label>
+                  <div class="flex flex-nowrap">
+                    <span
+                        class="inline-flex items-center appearance-none block bg-gray-300 text-gray-700 border border-gray-200 rounded-l-md py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                      {{ formData.captchaOperation }} =
+                    </span>
+                    <input
+                        id="captcha"
+                        v-model="formData.captcha"
+                        class="appearance-none block w-14 bg-gray-200 text-gray-700 border border-gray-200 rounded-r-md py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                        type="text"
+                    />
+                  </div>
+                </div>
+                <!-- Affichez le message d'erreur spécifique au CAPTCHA -->
+                <div v-if="errors.captcha" id="alert-border-2"
+                     class="flex items-center p-4 mb-4 text-red-800 border-t-4 border-red-300 bg-red-50 dark:text-red-400 dark:bg-gray-800 dark:border-red-800"
+                     role="alert">
+                  <svg aria-hidden="true" class="flex-shrink-0 w-4 h-4" fill="currentColor"
+                       viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
+                  </svg>
+                  <div class="ml-3 text-sm font-medium">
+                    {{ errors.captcha }}
+                  </div>
+                </div>
               </div>
               <div class="mb-4">
                 <input type="checkbox" id="accepter" name="accepter" v-model="formData.accepter">
                 <label for="accepter" class="ml-2 text-gray-800 dark:text-white">En soumettant ce formulaire,
                   j'accepte que les informations saisies soient exploitées dans le cadre de la demande de devis et de
                   la relation commerciale qui peut en découler. *</label>
-                <div  v-if="errors.accepter"
-                      class="flex items-center p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
-                  <svg class="flex-shrink-0 inline w-4 h-4 mr-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
+                <div v-if="errors.accepter"
+                     class="flex items-center p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400"
+                     role="alert">
+                  <svg aria-hidden="true" class="flex-shrink-0 inline w-4 h-4 mr-3" fill="currentColor"
+                       viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
                   </svg>
                   <span class="sr-only">Info</span>
                   <div>
@@ -149,7 +184,7 @@
 
 <script>
 import axios from "axios";
-import { Modal } from 'flowbite';
+import {Modal} from 'flowbite';
 
 const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 const phoneRegex = /^\d{10}$/; // Exemple : 0612345678
@@ -173,6 +208,7 @@ export default {
   created() {
     this.fetchCSRFToken();
     this.modal = new Modal(this.$refs.modalEl, options);
+    this.calculateAndSetCaptchaResult(); // Calculez le résultat et stockez-le dans les données
   },
   methods: {
     showModal() {
@@ -217,17 +253,16 @@ export default {
         this.errors.tel = "Veuillez saisir un numéro de téléphone valide (10 chiffres sans espaces ni caractères spéciaux).";
       }
 
-
       if (!this.formData.projet) {
         this.errors.projet = "Le message est obligatoire.";
-      }
-
-      if (!this.formData.projet) {
-        this.errors.projet = "Le prénom est obligatoire.";
       } else if (this.formData.projet.length < 100) {
         this.errors.projet = "La chaîne est trop courte. Veuillez entrer au moins 100 caractères.";
       } else if (this.formData.projet.length > 500) {
         this.errors.projet = "La chaîne est trop longue. Limitez-la à 500 caractères maximum.";
+      }
+
+      if (Number(this.formData.captcha) !== this.formData.expectedCaptchaResult) {
+        this.errors.captcha = "La réponse au CAPTCHA est incorrecte.";
       }
 
       if (!this.formData.accepter) {
@@ -258,9 +293,14 @@ export default {
           email: '',
           tel: '',
           adresse_site: '',
+          captcha: '',
           accepter: false,
           projet: '',
         };
+
+        // Réinitialisez le CAPTCHA
+        this.generateCaptchaOperation();
+
       } catch (error) {
         console.error("Erreur lors de la requête à l'API :", error);
         this.successMessage = "Erreur lors de la requête à l'API : " + error.message;
@@ -268,6 +308,30 @@ export default {
 
       this.hideModal();
     },
+
+    generateCaptchaOperation() {
+      const num1 = Math.floor(Math.random() * 10) + 1;
+      const num2 = Math.floor(Math.random() * 10) + 1;
+      const operation = "+";
+      this.formData.captchaOperation = `${num1} ${operation} ${num2}`;
+    },
+
+    checkCaptcha() {
+      const [num1, operator, num2] = this.formData.captcha.split(" ");
+      const expectedCaptcha = this.calculateCaptchaResult(num1, operator, num2);
+      return Number(this.formData.captcha) === expectedCaptcha;
+    },
+
+    calculateAndSetCaptchaResult() {
+      const num1 = Math.floor(Math.random() * 10) + 1;
+      const num2 = Math.floor(Math.random() * 10) + 1;
+      const operator = "+";
+      const expectedResult = num1 + num2;
+
+      this.formData.captchaOperation = `${num1} ${operator} ${num2}`;
+      this.formData.expectedCaptchaResult = expectedResult;
+    },
+
     hideSuccessMessage() {
       // Masquez l'alerte de succès lorsque l'utilisateur clique sur le bouton de fermeture
       const targetElement = document.querySelector("#alert-border-3");
