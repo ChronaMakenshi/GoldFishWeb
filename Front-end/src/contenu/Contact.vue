@@ -3,7 +3,7 @@
     <div class="text-center m-5 min-[768px]:text-3xl text-white w-6/12 m-auto">
       <h1 class="font-bold uppercase underline mb-2">Contacter-Moi</h1>
       <p class="mb-5">
-        Bienvenue à vous ! Vous avez une idée ou un projet en tête ? Nous sommes là pour vous aider. Contactez-nous dès
+        Bienvenue à vous ! Vous avez une idée ou un projet en tête ? Nous sommes là pour vous aider. Contacter-moi dès
         maintenant pour obtenir une estimation gratuite.
       </p>
     </div>

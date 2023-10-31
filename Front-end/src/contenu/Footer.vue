@@ -9,7 +9,7 @@
       <div class="flex">
         <img alt="Your Company" class="h-8 w-8 mr-4" src="/src/assets/goldfishfish.svg"/>
         <h5 class="text-xl text-white">
-          Développeur Web Freelance & Webdesigner Indépendant
+          Développeur Web & Webdesigner Freelance
         </h5>
       </div>
       <div>

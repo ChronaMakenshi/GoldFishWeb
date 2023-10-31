@@ -2,7 +2,7 @@
   <article class="mt-20 max-md:mt-10">
     <div class="text-center min-[768px]:text-3xl text-white">
       <h2 class="font-bold uppercase underline">Mes services</h2>
-      <p>Des prestation adaptées à vos besoins</p>
+      <p>Des prestations adaptées à vos besoins</p>
     </div>
     <div class="my-10 max-md:p-1 bg-blue-400 w-6/12 max-md:w-11/12 m-auto p-5 rounded-lg dark:bg-zinc-800">
       <ul class="grid grid-cols-2 gap-2 text-center text-white">
@@ -12,11 +12,11 @@
         </li>
         <li class="m-4 max-md:m-2">
           <h3 class="font-semibold">Intégration Web</h3>
-          <p>Des intergration HTML/CSS - bootstrap - tailwind</p>
+          <p>Des intergrations HTML/CSS - bootstrap - tailwind</p>
         </li>
         <li class="m-4 max-md:m-2">
           <h3 class="font-semibold">Reférencement Naturel</h3>
-          <p>Des pages propres un reférencement optimal</p>
+          <p>Des pages propres, un reférencement optimal</p>
         </li>
         <li class="m-4 max-md:m-2">
           <h3 class="font-semibold">Webdesign</h3>
@@ -24,7 +24,7 @@
         </li>
         <li class="m-4 max-md:m-2">
           <h3 class="font-semibold">Dynamisme des pages</h3>
-          <p>Des animations de contenue non intrusive pour embellir votre projets</p>
+          <p>Des animations de contenu non intrusive pour embellir votre projet</p>
         </li>
         <li class="m-4 max-md:m-2">
           <h3 class="font-semibold">Interface d'administration</h3>
@@ -32,7 +32,7 @@
         </li>
         <li class="m-4 max-md:m-2">
           <h3 class="font-semibold">Reponsive Design</h3>
-          <p>Compatible tous tablette & application mobile</p>
+          <p>Compatibles pour les tablettes & applications mobiles</p>
         </li>
       </ul>
     </div>

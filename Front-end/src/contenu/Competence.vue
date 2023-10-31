@@ -13,7 +13,7 @@
           <div :class="['Skill-' + skill.name]" >
             <span class="Skill-Area">{{ skill.name }}</span>
             <span class="PercentText">{{ skill.percent }}%</span>
-            <div class="Skill-Details">
+            <div class="Skill-Details max-xl:hidden">
               {{ skill.details }}
             </div>
           </div>
