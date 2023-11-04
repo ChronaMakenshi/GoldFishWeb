@@ -19,7 +19,7 @@ import Modal from '/src/components/Modal.vue'
             Vitrine
             Standard</h3>
           <p class="text-center my-3 text-lg">À partir de</p>
-          <p class="text-center text-lg">Création d'un site 4 à 7. Tarif: 350 € /jour</p>
+          <p class="text-center text-lg">Création d'un site 4 à 7.<br> Tarif: 350 € /jour</p>
           <ul class="m-2 list-[upper-roman] p-6">
             <li>Développé sous WORDPRESS ou Développé SUR-MESURE (Codage à la main)</li>
             <li>Charte graphique à partir d'une maquette pré-définie</li>
@@ -40,7 +40,7 @@ import Modal from '/src/components/Modal.vue'
           <h3 class="text-center underline underline-offset-2 decoration-double text-xl font-semibold uppercase">Site
             E-commerce</h3>
           <p class="text-center my-3 text-lg">À partir de</p>
-          <p class="text-center text-lg"> Création d'un site 4 à 7. Tarif: 350 €/jour</p>
+          <p class="text-center text-lg"> Création d'un site 4 à 7.<br> Tarif: 350 €/jour</p>
           <ul class="m-2 list-[upper-roman] p-6">
             <li>Développé sous WORDPRESS</li>
             <li>Charte graphique à partir d'une maquette pré-définie</li>
