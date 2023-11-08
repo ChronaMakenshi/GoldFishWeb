@@ -1,22 +1,19 @@
 <script setup>
-  import ScrollPos from "../components/Scroll-pos.vue";
-</script>
+import ScrollPos from "../components/Scroll-pos.vue";</script>
 
 <template>
   <footer class="w-full">
     <ScrollPos></ScrollPos>
     <div class="bg-zinc-900 flex py-2 px-5 justify-between">
-      <div class="flex">
-        <img alt="Your Company" class="h-8 w-8 mr-4" src="/src/assets/goldfishfish.svg"/>
+      <div class="flex items-center">
+        <img alt="Your Company" class="h-8 w-8 mr-4" src="/src/assets/goldfishfish.webp"/>
         <h5 class="text-xl text-white">
           Développeur Web & Webdesigner Freelance
         </h5>
       </div>
       <div>
-        <a href="https://www.linkedin.com/in/christophe-mestdagh-3a6002217/">
-          <img alt="linkedin"
-               class="h-8 w-8 mr-4"
-               src="/src/assets/LinkedIn_icon_circle.svg">
+        <a href="https://www.linkedin.com/in/christophe-mestdagh-3a6002217/" target="_blank">
+          <img alt="linkedin" class="h-8 w-8" src="/src/assets/LinkedIn_icon_circle.webp">
         </a>
       </div>
     </div>

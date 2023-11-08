@@ -179,6 +179,12 @@ body {
     }
 }
 
+/* Ajoutez la classe spécifique pour la couleur du texte */
+.Skill-React .Skill-Area,
+.Skill-React .PercentText {
+    color: black; /* Définissez la couleur du texte en noir */
+}
+
 .Skill-SQL {
     background-color: #3008FE;
     width: 65%;

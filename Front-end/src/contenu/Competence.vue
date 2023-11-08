@@ -1,6 +1,22 @@
+<script setup>
+const skills = [
+  {name: "HTML", percent: 100},
+  {name: "CSS-SCSS", percent: 95},
+  {name: "Bootstrap-Tailwind", percent: 95},
+  {name: "Wordpress", percent: 85},
+  {name: "Javascript", percent: 80},
+  {name: "PHP", percent: 80},
+  {name: "Symfony", percent: 75},
+  {name: "Laravel", percent: 75},
+  {name: "React", percent: 70},
+  {name: "SQL", percent: 65, details: "( MySQL, SQLite, PostgreSQL )"},
+  {name: "Vue3", percent: 60},
+];
+</script>
+
 <template>
   <article id="Competence">
-    <div class="text-center m-5 min-[768px]:text-3xl max-md:text-xl text-white">
+    <div class="text-center m-5 md:text-3xl max-md:text-xl text-white">
       <h2 class="font-bold uppercase underline">Mes Compétences</h2>
     </div>
     <div>
@@ -23,27 +39,7 @@
   </article>
 </template>
 
-<script>
-export default {
-  data() {
-    return {
-      skills: [
-        { name: "HTML", percent: 100},
-        { name: "CSS-SCSS", percent: 95 },
-        { name: "Bootstrap-Tailwind", percent: 95 },
-        { name: "Wordpress", percent: 85 },
-        { name: "Javascript", percent: 80},
-        { name: "PHP", percent: 80 },
-        { name: "Symfony", percent: 75},
-        { name: "Laravel", percent: 75},
-        { name: "React", percent: 70 },
-        { name: "SQL", percent: 65, details: "( MySQL, SQLite, PostgreSQL )" },
-        { name: "Vue3", percent: 60},
-      ],
-    };
-  },
-};
-</script>
+
 
 
 
