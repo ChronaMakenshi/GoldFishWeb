@@ -18,7 +18,7 @@
         ce qui me permet de choisir la meilleure approche technique pour chaque projet.
       </p>
       <a class="flex justify-center" href="https://mestdagh-christophe.ovh/" target="_blank">
-        <img alt="Mon Portfolio" class="rounded" src="src/assets/bouton.webp">
+        <img alt="Mon Portfolio" class="rounded" src="/src/assets/bouton.webp">
       </a>
       <h3 class="mt-2 underline underline-offset-2 text-lg font-semibold uppercase">Ma Mission</h3>
       <p class="my-2">

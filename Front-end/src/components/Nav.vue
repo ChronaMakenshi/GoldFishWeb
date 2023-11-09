@@ -15,34 +15,26 @@ const navigation = [
 
 const showPos = ref("0");
 let interval; // Définir interval ici
-const scrollToTop = () => {
-  window.scrollTo({
-    top: 0,
-    behavior: "auto",
-  });
-};
 
 const handleMouseOver = (event) => {
-  if (event.clientY < 100) {
-    showPos.value = "0";
-    clearInterval(interval);
-  }
+    showPos.value = "0"
 }
-
 const handleMouseOut = (event) => {
-  interval = setInterval(() => {
-    if (window.scrollY) {
       showPos.value = "-80px";
-    } else {
-      showPos.value = "0";
-    }
-  }, 15000);  // 15 secondes de délai
 }
 
 onMounted(async () => {
   window.addEventListener("scroll", () => {
     showPos.value = "0";
   }, { passive: true }); // Ajoutez { passive: true } ici pour optimiser la performance.
+
+  interval = setInterval(() => {
+    if (window.scrollY) {
+      showPos.value = "-80px";
+    } else {
+      showPos.value = "0";
+    }
+  }, 10000);  // 15 secondes de délai
 
   // Écouteur d'événement pour "mouseover"
   window.addEventListener("mouseover", handleMouseOver);
@@ -54,9 +46,8 @@ onMounted(async () => {
 
 
 <template>
-  <div class="min-h-full relative" id="returnToNav" :style="{ top: showPos }">
-    <Disclosure v-slot="{ open }" as="nav"
-                class="fixed w-full max-md:relative z-20 bg-blue-600/50 dark:bg-slate-900/50">
+    <Disclosure v-slot="{ open }" as="nav" id="returnToNav" :style="{ top: showPos }"
+                class="w-full max-md:relative fixed z-20 bg-blue-600/50 dark:bg-slate-900/50">
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div class="flex h-20 items-center justify-between">
           <div class="flex items-center flex-shrink-0 text-white mr-6">
@@ -106,5 +97,4 @@ onMounted(async () => {
         </div>
       </DisclosurePanel>
     </Disclosure>
-  </div>
 </template>

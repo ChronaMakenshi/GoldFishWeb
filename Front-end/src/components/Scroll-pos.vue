@@ -47,7 +47,7 @@ export default {
         @click.passive="scrollToTop"
         :style="{ right: showPos }"
     >
-      <img alt="start" src="src/assets/Neuneufleche.webp" />
+      <img alt="start" src="/src/assets/Neuneufleche.webp" />
     </div>
   </div>
 </template>
